@@ -373,9 +373,18 @@
       }
       /* compression dès 800 px de haut : sur les écrans de portable,
          le contenu tient dans la zone visible et reste centré
-         (sinon le centrage safe le cale en haut) */
+         (sinon le centrage safe le cale en haut) ; le logo n'a plus
+         la place de flotter à mi-hauteur — il rejoint le flux,
+         empilé au-dessus de la banane */
       @media (max-height: 800px) {
-        .banana-hero { margin-bottom: 18px; }
+        .brand {
+          position: relative;
+          left: auto;
+          top: auto;
+          transform: none;
+          margin-bottom: 20px;
+        }
+        .banana-hero { display: block; margin: 0 auto 18px; }
         h1 { margin-bottom: 14px; }
         .tagline { margin-bottom: 26px; }
         .cta-row { margin-bottom: 26px; }
