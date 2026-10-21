@@ -44,7 +44,11 @@
         }
       }
       body {
-        height: 100%;
+        /* hauteur visible (barre d'outils Safari déduite) avec
+           viewport-fit=cover : le contenu ne passe jamais dessous ;
+           100vh en repli pour les navigateurs sans svh */
+        height: 100vh;
+        height: 100svh;
         font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
         color: var(--ink);
         display: flex;
