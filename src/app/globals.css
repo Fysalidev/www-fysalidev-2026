@@ -43,7 +43,10 @@
         justify-content: center;
         min-height: 100vh;
         min-height: 100svh; /* hauteur stable sous les barres des navigateurs mobiles */
-        padding: 24px;
+        /* marges safe-area : le contenu reste à distance du Dynamic
+           Island et de l'indicateur home avec viewport-fit=cover ;
+           sur desktop les insets valent 0 (comportement inchangé) */
+        padding: calc(24px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));
         overflow-x: hidden; /* les ballons ne créent jamais de défilement horizontal */
       }
       .frame {
@@ -265,7 +268,7 @@
       /* petits écrans : logo et banane réduits, boutons adaptés au pouce */
       @media (max-width: 600px) {
         :root { --brand-size: 1.7rem; --banana-size: 2.7rem; }
-        body { padding: 18px 16px; }
+        body { padding: calc(18px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left)); }
         .cta { padding: 14px 24px; font-size: 1rem; }
         .tagline { margin-bottom: 28px; }
         .cta-row { margin-bottom: 28px; }
@@ -286,7 +289,7 @@
       /* écrans très larges (≥ 1600 px) : la composition grandit avec l'écran */
       @media (min-width: 1600px) {
         :root { --brand-size: 3.1rem; --banana-size: 4.2rem; }
-        body { padding: 32px; }
+        body { padding: calc(32px + env(safe-area-inset-top)) calc(32px + env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) calc(32px + env(safe-area-inset-left)); }
         .frame { max-width: 880px; }
         .banana-hero { margin-bottom: 28px; }
         h1 { font-size: 5.4rem; margin-bottom: 24px; }
@@ -304,7 +307,7 @@
       /* écrans extralarges (≥ 2400 px : 4K, ultra-wide) */
       @media (min-width: 2400px) {
         :root { --brand-size: 3.6rem; --banana-size: 5rem; }
-        body { padding: 40px; }
+        body { padding: calc(40px + env(safe-area-inset-top)) calc(40px + env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) calc(40px + env(safe-area-inset-left)); }
         .frame { max-width: 1060px; }
         .banana-hero { margin-bottom: 34px; }
         h1 { font-size: 6.8rem; margin-bottom: 30px; }
@@ -335,7 +338,7 @@
         .social-bar { margin-top: 10px; }
       }
       @media (max-height: 580px) {
-        body { padding: 12px 16px; }
+        body { padding: calc(12px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left)); }
         :root { --banana-size: 2.2rem; }
         .banana-hero { margin-bottom: 12px; }
         h1 { font-size: clamp(1.8rem, 4.5vh, 2.8rem); margin-bottom: 10px; }
