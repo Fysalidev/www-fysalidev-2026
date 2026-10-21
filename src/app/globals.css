@@ -320,8 +320,8 @@
         .subtitle { margin-bottom: 12px; }
         .tagline { margin-bottom: 26px; }
         .cta-row { margin-bottom: 26px; }
-        footer { margin-top: 26px; }
-        .social-bar { margin-top: 20px; }
+        footer { margin-top: 14px; }
+        .social-bar { margin-top: 12px; }
       }
       /* mobiles portrait : hauteur minimum garantie, mais toujours dans le
          viewport : la page reste fixe, sans jamais être coupée */
