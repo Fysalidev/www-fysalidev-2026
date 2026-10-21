@@ -307,21 +307,21 @@
           left: auto;
           top: auto;
           transform: none;
-          margin-bottom: 22px;
+          margin-bottom: 16px;
         }
-        .cta-row { flex-direction: column; align-items: stretch; }
-        .cta { justify-content: center; }
+        .cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+        .cta { justify-content: center; padding: 12px 22px; }
         .banana-hero {
           /* bloque la ligne : jamais à côté du logo, centrée dessous */
           display: block;
-          margin: 0 auto 20px;
+          margin: 0 auto 14px;
         }
-        h1 { margin-bottom: 16px; }
-        .subtitle { margin-bottom: 12px; }
-        .tagline { margin-bottom: 26px; }
-        .cta-row { margin-bottom: 26px; }
-        footer { margin-top: 14px; }
-        .social-bar { margin-top: 12px; }
+        h1 { font-size: 2.2rem; margin-bottom: 12px; }
+        .subtitle { margin-bottom: 8px; }
+        .tagline { margin-bottom: 18px; }
+        .cta-row { margin-bottom: 18px; }
+        footer { margin-top: 10px; }
+        .social-bar { margin-top: 8px; }
       }
       /* mobiles portrait : hauteur minimum garantie, mais toujours dans le
          viewport : la page reste fixe, sans jamais être coupée */
