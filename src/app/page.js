@@ -28,14 +28,25 @@ export default function Home() {
        La règle est réévaluée à chaque variation : redimensionnement,
        défilement, rotation d'écran, chargement des polices. */
     let ticking = false;
+    /* inset safe-area réel (encoche / Dynamic Island), mesuré via une
+       sonde : env() n'est pas lisible directement en JS */
+    function safeAreaTop() {
+      const probe = document.createElement("div");
+      probe.style.cssText =
+        "position:fixed;top:env(safe-area-inset-top);visibility:hidden;pointer-events:none";
+      document.body.appendChild(probe);
+      const top = probe.getBoundingClientRect().top;
+      probe.remove();
+      return top;
+    }
     function placeBrand() {
       const bananaTop = banana.getBoundingClientRect().top;
-      /* à mi-chemin… mais sans jamais chevaucher la banane (écrans bas / paysage) */
+      /* à mi-chemin… mais sans jamais chevaucher l'encoche ni la banane */
       const top = Math.min(
         (bananaTop - brand.offsetHeight) / 2,
         bananaTop - brand.offsetHeight - 8
       );
-      brand.style.top = Math.max(top, 12) + "px";
+      brand.style.top = Math.max(top, 12 + safeAreaTop()) + "px";
       /* césure oblique alignée sur la jonction réelle FYSALI|DEV */
       brand.style.setProperty(
         "--seam-top",
