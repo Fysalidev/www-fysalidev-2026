@@ -34,6 +34,17 @@
         height: 100%;
         background: radial-gradient(ellipse 80% 60% at 50% 110%, #3a2314 0%, var(--bg) 60%);
       }
+      /* mobiles : fondre le haut et le bas de la page vers le noir du
+         chrome Safari (barre de statut, barre d'outils) — la transition
+         page / navigateur devient invisible ; desktop inchangé */
+      @media (max-width: 600px) {
+        html {
+          background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 14%),
+            linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 14%),
+            radial-gradient(ellipse 80% 60% at 50% 110%, #3a2314 0%, var(--bg) 60%);
+        }
+      }
       body {
         height: 100%;
         font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
