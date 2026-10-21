@@ -41,12 +41,13 @@ export default function Home() {
     }
     function placeBrand() {
       const bananaTop = banana.getBoundingClientRect().top;
-      /* à mi-chemin… mais sans jamais chevaucher l'encoche ni la banane */
-      const top = Math.min(
-        (bananaTop - brand.offsetHeight) / 2,
-        bananaTop - brand.offsetHeight - 8
-      );
-      brand.style.top = Math.max(top, 12 + safeAreaTop()) + "px";
+      const brandH = brand.offsetHeight;
+      /* plafond : jamais à moins de 12 px au-dessus de la banane */
+      const maxTop = bananaTop - brandH - 12;
+      /* mi-chemin… mais sans jamais dépasser ce plafond */
+      const top = Math.min((bananaTop - brandH) / 2, maxTop);
+      /* pas dans l'encoche, mais jamais au prix d'un chevauchement */
+      brand.style.top = Math.max(top, Math.min(12 + safeAreaTop(), maxTop)) + "px";
       /* césure oblique alignée sur la jonction réelle FYSALI|DEV */
       brand.style.setProperty(
         "--seam-top",
