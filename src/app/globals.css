@@ -52,7 +52,10 @@
         font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
         color: var(--ink);
         display: flex;
+        /* safe center : centré quand ça tient, calé en haut quand ça
+           déborde — le haut de la page n'est jamais rogné */
         align-items: center;
+        align-items: safe center;
         justify-content: center;
         min-height: 100vh;
         min-height: 100svh; /* hauteur stable sous les barres des navigateurs mobiles */

@@ -46,8 +46,9 @@ export default function Home() {
       const maxTop = bananaTop - brandH - 12;
       /* mi-chemin… mais sans jamais dépasser ce plafond */
       const top = Math.min((bananaTop - brandH) / 2, maxTop);
-      /* pas dans l'encoche, mais jamais au prix d'un chevauchement */
-      brand.style.top = Math.max(top, Math.min(12 + safeAreaTop(), maxTop)) + "px";
+      /* pas dans l'encoche, jamais sous la banane, jamais hors écran */
+      const minTop = Math.max(0, Math.min(12 + safeAreaTop(), maxTop));
+      brand.style.top = Math.max(top, minTop) + "px";
       /* césure oblique alignée sur la jonction réelle FYSALI|DEV */
       brand.style.setProperty(
         "--seam-top",
@@ -160,7 +161,8 @@ export default function Home() {
       </div>
 
       <h1>
-        Forger demain <span className="ember">ensemble</span>
+        Forger demai<span className="ember">n</span>{" "}
+        <span className="ember">ensemble</span>
       </h1>
 
       <p className="subtitle">
