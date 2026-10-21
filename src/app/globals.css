@@ -371,7 +371,10 @@
       @media (min-height: 560px) {
         body { overflow: hidden; }
       }
-      @media (max-height: 720px) {
+      /* compression dès 800 px de haut : sur les écrans de portable,
+         le contenu tient dans la zone visible et reste centré
+         (sinon le centrage safe le cale en haut) */
+      @media (max-height: 800px) {
         .banana-hero { margin-bottom: 18px; }
         h1 { margin-bottom: 14px; }
         .tagline { margin-bottom: 26px; }
