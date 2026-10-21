@@ -48,7 +48,11 @@ export default function Home() {
       const top = Math.min((bananaTop - brandH) / 2, maxTop);
       /* pas dans l'encoche, jamais sous la banane, jamais hors écran */
       const minTop = Math.max(0, Math.min(12 + safeAreaTop(), maxTop));
-      brand.style.top = Math.max(top, minTop) + "px";
+      /* sur mobile, le logo est dans le flux (position relative) :
+         le placement flottant ne s'applique qu'au logo fixe */
+      if (getComputedStyle(brand).position === "fixed") {
+        brand.style.top = Math.max(top, minTop) + "px";
+      }
       /* césure oblique alignée sur la jonction réelle FYSALI|DEV */
       brand.style.setProperty(
         "--seam-top",
