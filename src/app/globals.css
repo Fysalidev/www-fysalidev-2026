@@ -10,6 +10,8 @@
       }
 
 :root {
+        /* chrome sombre du navigateur (barres iOS) et contrôles natifs */
+        color-scheme: dark;
         --bg: #171310;
         --bg-soft: #201a15;
         --ink: #f4ede4;
